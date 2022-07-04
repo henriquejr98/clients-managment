@@ -1,20 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Person List</h1>
-    <ul>
-        {% for person in persons %}
-            <li><a href="{% url 'person_update' person.id %}">{{ person.first_name }}</a> <button><a href="{% url 'person_delete' person.id %}">Delete</a></button></li>
-        {% endfor %}
-    </ul>
-    <button><a href="{% url 'person_new' %}">New Person</a></button>
-    <button><a href="{% url 'home' %}">Home</a></button>
-    <button><a href="{% url 'logout' %}">Logout</a></button>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} List {% endblock %}
+
+{% block main %}
+    <div class="row">
+        <div class="col">
+            <h1>Person List</h1>
+            <ul>
+                {% for person in persons %}
+                    <li>
+                        <a href="{% url 'person_update' person.id %}">{{ person.first_name }}</a>
+                        <a href="{% url 'person_delete' person.id %}">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            <button class="btn btn-outline-info"><a href="{% url 'person_new' %}">New Person</a></button>
+            <button class="btn btn-outline-info"><a href="{% url 'home' %}">Home</a></button>
+            <button class="btn btn-outline-warning"><a href="{% url 'logout' %}">Logout</a></button>
+        </div>
+
+{% endblock %}
+
+{% block footer %}
+
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <span class="text-muted">© 2022 Company, Inc</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        </ul>
+        </footer>
+    </div>
+
+{% endblock %}
+

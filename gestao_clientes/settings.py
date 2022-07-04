@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG' , default=False , cast=bool)
 
-ALLOWED_HOSTS = ['gestao-clientes-kbcinha.herokuapp.com']
+ALLOWED_HOSTS = ['gestao-clientes-kbcinha.herokuapp.com' , 'localhost']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clientes',
     'home',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
