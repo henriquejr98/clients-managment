@@ -5,7 +5,12 @@ from .forms import PersonForm
 
 @login_required
 def persons_list(request):
-    all_persons = Person.objects.all()
+    person_search = request.GET.get('searchperson' , None)
+    if person_search:
+        all_persons = Person.objects.all()
+        all_persons = all_persons.filter(first_name__icontains=person_search)
+    else:
+        all_persons = Person.objects.all()
     return render(request , 'person.html' , {'persons' : all_persons})
 
 @login_required

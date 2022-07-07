@@ -2,6 +2,14 @@
 {% block title %} List {% endblock %}
 
 {% block main %}
+    <div class="col">
+        <form class="form-inline">
+            <div class="input-group">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="searchperson" />
+                <button type="submit" class="btn btn-outline-primary">search</button>
+            </div>
+        </form>
+    </div>
     <div class="row">
         <div class="col">
             <h1>Person List</h1>
@@ -21,6 +29,7 @@
             <button class="btn btn-outline-info"><a href="{% url 'home' %}">Home</a></button>
             <button class="btn btn-outline-warning"><a href="{% url 'logout' %}">Logout</a></button>
         </div>
+
 
 {% endblock %}
 
