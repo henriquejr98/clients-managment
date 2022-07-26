@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Person Detail</h3>
+    {{ person.first_name }}
+    <br>
+    {{ person.last_name }}
+    <br>
+    {{ now }}
+    <br>
+    <h3>Products</h3>
+    <ul>
+    {% for product in product %}
+        <li>{{ product.name }}</li>
+    {% endfor %}
+    </ul>
+    <br>
+    <form action="{% url 'person_list_cbv' %}">
+        <button type="submit">Back to list</button>
+    </form>
+    <br>
+    <form action="{% url 'person_form_update_cbv' person.id %}">
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

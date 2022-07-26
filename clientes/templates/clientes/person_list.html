@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Listagem de pessoas</h3>
+    {% for person in object_list %}
+        <a href="{% url 'person_detail' person.id %}">{{ person }}</a>
+        <form action="{% url 'person_form_delete_cbv' person.id %}">
+            <button type="submit">Delete</button>
+        </form>
+        <br>
+    {% endfor %}
+    <br>
+    <form action="{% url 'person_form_cbv' %}">
+        <button type="submit">New Person</button>
+    </form>
+</body>
+</html>
